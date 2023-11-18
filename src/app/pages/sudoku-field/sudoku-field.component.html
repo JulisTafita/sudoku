@@ -1,0 +1,74 @@
+<section class="grid grid-cols-3 gap-3 w-full h-full border-4 border-gray-300 bg-gray-200">
+    <div class="w-full h-full">
+    <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[0]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 0)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+    <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[1]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 1)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+  <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[2]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 2)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[3]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 3)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[4]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 4)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+ <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[5]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 5)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[6]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 6)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[7]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 7)"/>
+       </div>
+    </section>
+    </div>
+    <div class="w-full h-full">
+<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[8]">
+                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
+                    (input)="inputData($event, col, 8)"/>
+       </div>
+    </section>
+    </div>
+</section>
