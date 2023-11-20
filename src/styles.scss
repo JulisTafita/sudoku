@@ -2,3 +2,12 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@font-face {
+    font-family: "sudoku";
+    src: url('assets/fonts/Sudoku.ttf');
+}
+
+.sudoku-title{
+    font-family: sudoku;
+}

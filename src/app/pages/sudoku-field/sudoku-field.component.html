@@ -1,74 +1,612 @@
 <section class="grid grid-cols-3 gap-3 w-full h-full border-4 border-gray-300 bg-gray-200">
     <div class="w-full h-full">
-    <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[0]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 0)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 0)}" [disabled]="isInputDisabled(0, 0)"  autocomplete="false"  [value]="board[0][0] !== 0 ? board[0][0] : ''" id="0-0" required type="text"
+                    class="w-full h-full " pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 1)}" [disabled]="isInputDisabled(0, 1)" [disabled]="isInputDisabled(0, 1)" autocomplete="false"    [value]="board[0][1] !== 0 ? board[0][1] : ''" id="0-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 2)}" [disabled]="isInputDisabled(0, 2)"  autocomplete="false"   [value]="board[0][2] !== 0 ? board[0][2] : ''" id="0-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 3)}" [disabled]="isInputDisabled(0, 3)"  autocomplete="false"   [value]="board[0][3] !== 0 ? board[0][3] : ''" id="0-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 4)}" [disabled]="isInputDisabled(0, 4)"  autocomplete="false"   [value]="board[0][4] !== 0 ? board[0][4] : ''" id="0-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(0, 5)}" [disabled]="isInputDisabled(0, 5)"  autocomplete="false"   [value]="board[0][5] !== 0 ? board[0][5] : ''" id="0-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 6)}" [disabled]="isInputDisabled(0, 6)" autocomplete="false"   [value]="board[0][6] !== 0 ? board[0][6] : ''" id="0-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 7)}" [disabled]="isInputDisabled(0, 7)"  autocomplete="false"   [value]="board[0][7] !== 0 ? board[0][7] : ''" id="0-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(0, 8)}" [disabled]="isInputDisabled(0, 8)"  autocomplete="false"   [value]="board[0][8] !== 0 ? board[0][8] : ''" id="0-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 0, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+        </section>
     </div>
     <div class="w-full h-full">
-    <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[1]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 1)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(1, 0)}" [disabled]="isInputDisabled(1, 0)"  autocomplete="false"   [value]="board[1][0] !== 0 ? board[1][0] : ''" id="1-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 1)}" [disabled]="isInputDisabled(1, 1)"  autocomplete="false"   [value]="board[1][1] !== 0 ? board[1][1] : ''" id="1-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 2)}" [disabled]="isInputDisabled(1, 2)"  autocomplete="false"   [value]="board[1][2] !== 0 ? board[1][2] : ''" id="1-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 3)}" [disabled]="isInputDisabled(1, 3)"  autocomplete="false"   [value]="board[1][3] !== 0 ? board[1][3] : ''" id="1-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 4)}" [disabled]="isInputDisabled(1, 4)"  autocomplete="false"   [value]="board[1][4] !== 0 ? board[1][4] : ''" id="1-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 5)}" [disabled]="isInputDisabled(1, 5)"  autocomplete="false"   [value]="board[1][5] !== 0 ? board[1][5] : ''" id="1-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 6)}" [disabled]="isInputDisabled(1, 6)" autocomplete="false"   [value]="board[1][6] !== 0 ? board[1][6] : ''" id="1-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 7)}" [disabled]="isInputDisabled(1, 7)"  autocomplete="false"   [value]="board[1][7] !== 0 ? board[1][7] : ''" id="1-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(1, 8)}" [disabled]="isInputDisabled(1, 8)"  autocomplete="false"   [value]="board[1][8] !== 0 ? board[1][8] : ''" id="1-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 1, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+        </section>
     </div>
     <div class="w-full h-full">
-  <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[2]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 2)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 0)}" [disabled]="isInputDisabled(2, 0)"  autocomplete="false"   [value]="board[2][0] !== 0 ? board[2][0] : ''" id="2-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 1)}" [disabled]="isInputDisabled(2, 1)"   autocomplete="false"   [value]="board[2][1] !== 0 ? board[2][1] : ''" id="2-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 2)}" [disabled]="isInputDisabled(2, 2)"   autocomplete="false"   [value]="board[2][2] !== 0 ? board[2][2] : ''" id="2-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(2, 3)}" [disabled]="isInputDisabled(2, 3)"  autocomplete="false"   [value]="board[2][3] !== 0 ? board[2][3] : ''" id="2-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 4)}" [disabled]="isInputDisabled(2, 4)"   autocomplete="false"   [value]="board[2][4] !== 0 ? board[2][4] : ''" id="2-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 5)}" [disabled]="isInputDisabled(2, 5)"   autocomplete="false"   [value]="board[2][5] !== 0 ? board[2][5] : ''" id="2-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 6)}" [disabled]="isInputDisabled(2, 6)"   autocomplete="false"   [value]="board[2][6] !== 0 ? board[2][6] : ''" id="2-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 7)}" [disabled]="isInputDisabled(2, 7)"   autocomplete="false"   [value]="board[2][7] !== 0 ? board[2][7] : ''" id="2-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+ 
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(2, 8)}" [disabled]="isInputDisabled(2, 8)"   autocomplete="false"   [value]="board[2][8] !== 0 ? board[2][8] : ''" id="2-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 2, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+        </section>
     </div>
     <div class="w-full h-full">
-<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[3]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 3)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 0)}" [disabled]="isInputDisabled(3, 0)"   autocomplete="false"   [value]="board[3][0] !== 0 ? board[3][0] : ''" id="3-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 1)}" [disabled]="isInputDisabled(3, 1)"  autocomplete="false"   [value]="board[3][1] !== 0 ? board[3][1] : ''" id="3-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 2)}" [disabled]="isInputDisabled(3, 2)"  autocomplete="false"   [value]="board[3][2] !== 0 ? board[3][2] : ''" id="3-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 3)}" [disabled]="isInputDisabled(3, 3)"  autocomplete="false"   [value]="board[3][3] !== 0 ? board[3][3] : ''" id="3-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 4)}" [disabled]="isInputDisabled(3, 4)"  autocomplete="false"   [value]="board[3][4] !== 0 ? board[3][4] : ''" id="3-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 5)}" [disabled]="isInputDisabled(3, 5)"  autocomplete="false"   [value]="board[3][5] !== 0 ? board[3][5] : ''" id="3-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 6)}" [disabled]="isInputDisabled(3, 6)"  autocomplete="false"   [value]="board[3][6] !== 0 ? board[3][6] : ''" id="3-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 7)}" [disabled]="isInputDisabled(3, 7)"  autocomplete="false"   [value]="board[3][7] !== 0 ? board[3][7] : ''" id="3-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(3, 8)}" [disabled]="isInputDisabled(3, 8)"  autocomplete="false"   [value]="board[3][8] !== 0 ? board[3][8] : ''" id="3-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 3, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+        </section>
     </div>
     <div class="w-full h-full">
-<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[4]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 4)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 0)}" [disabled]="isInputDisabled(4, 0)"  autocomplete="false"   [value]="board[4][0] !== 0 ? board[4][0] : ''" id="4-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 1)}" [disabled]="isInputDisabled(4, 1)"   autocomplete="false"   [value]="board[4][1] !== 0 ? board[4][1] : ''" id="4-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 2)}" [disabled]="isInputDisabled(4, 2)"   autocomplete="false"   [value]="board[4][2] !== 0 ? board[4][2] : ''" id="4-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 3)}" [disabled]="isInputDisabled(4, 3)"   autocomplete="false"   [value]="board[4][3] !== 0 ? board[4][3] : ''" id="4-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 4)}" [disabled]="isInputDisabled(4, 4)"  autocomplete="false"   [value]="board[4][4] !== 0 ? board[4][4] : ''" id="4-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 5)}" [disabled]="isInputDisabled(4, 5)"   autocomplete="false"   [value]="board[4][5] !== 0 ? board[4][5] : ''" id="4-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 6)}" [disabled]="isInputDisabled(4, 6)"   autocomplete="false"   [value]="board[4][6] !== 0 ? board[4][6] : ''" id="4-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(4, 7)}" [disabled]="isInputDisabled(4, 7)"  autocomplete="false"   [value]="board[4][7] !== 0 ? board[4][7] : ''" id="4-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(4, 8)}" [disabled]="isInputDisabled(4, 8)"   autocomplete="false"   [value]="board[4][8] !== 0 ? board[4][8] : ''" id="4-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 4, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+
+
+        </section>
     </div>
     <div class="w-full h-full">
- <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[5]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 5)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 0)}" [disabled]="isInputDisabled(5, 0)"   autocomplete="false"   [value]="board[5][0] !== 0 ? board[5][0] : ''" id="5-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 1)}" [disabled]="isInputDisabled(5, 1)"   autocomplete="false"   [value]="board[5][1] !== 0 ? board[5][1] : ''" id="5-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 2)}" [disabled]="isInputDisabled(5, 2)"   autocomplete="false"   [value]="board[5][2] !== 0 ? board[5][2] : ''" id="5-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 3)}" [disabled]="isInputDisabled(5, 3)"  autocomplete="false"   [value]="board[5][3] !== 0 ? board[5][3] : ''" id="5-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 4)}" [disabled]="isInputDisabled(5, 4)"   autocomplete="false"   [value]="board[5][4] !== 0 ? board[5][4] : ''" id="5-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 4)}" [disabled]="isInputDisabled(5, 4)"   autocomplete="false"   [value]="board[5][5] !== 0 ? board[5][5] : ''" id="5-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 6)}" [disabled]="isInputDisabled(5, 6)"   autocomplete="false"   [value]="board[5][6] !== 0 ? board[5][6] : ''" id="5-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(5, 7)}" [disabled]="isInputDisabled(5, 7)"  autocomplete="false"   [value]="board[5][7] !== 0 ? board[5][7] : ''" id="5-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+          
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(5, 8)}" [disabled]="isInputDisabled(5, 8)"  autocomplete="false"   [value]="board[5][8] !== 0 ? board[5][8] : ''" id="5-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 5, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+        </section>
     </div>
     <div class="w-full h-full">
-<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[6]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 6)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 0)}" [disabled]="isInputDisabled(6, 0)"   autocomplete="false"   [value]="board[6][0] !== 0 ? board[6][0] : ''" id="6-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 1)}" [disabled]="isInputDisabled(6, 1)"   autocomplete="false"   [value]="board[6][1] !== 0 ? board[6][1] : ''" id="6-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input  [ngClass]="{'bg-gray-300': isInputDisabled(6, 2)}" [disabled]="isInputDisabled(6, 2)"  autocomplete="false"   [value]="board[6][2] !== 0 ? board[6][2] : ''" id="6-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 3)}" [disabled]="isInputDisabled(6, 3)"   autocomplete="false"   [value]="board[6][3] !== 0 ? board[6][3] : ''" id="6-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 4)}" [disabled]="isInputDisabled(6, 4)"   autocomplete="false"   [value]="board[6][4] !== 0 ? board[6][4] : ''" id="6-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 5)}" [disabled]="isInputDisabled(6, 5)"  autocomplete="false"   [value]="board[6][5] !== 0 ? board[6][5] : ''" id="6-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 6)}" [disabled]="isInputDisabled(6, 6)"   autocomplete="false"   [value]="board[6][6] !== 0 ? board[6][6] : ''" id="6-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 7)}" [disabled]="isInputDisabled(6, 7)"   autocomplete="false"   [value]="board[6][7] !== 0 ? board[6][7] : ''" id="6-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+           
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(6, 8)}" [disabled]="isInputDisabled(6, 8)"   autocomplete="false"   [value]="board[6][8] !== 0 ? board[6][8] : ''" id="6-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 6, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+
+        </section>
     </div>
     <div class="w-full h-full">
-<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[7]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 7)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 0)}" [disabled]="isInputDisabled(7, 0)"   autocomplete="false"   [value]="board[7][0] !== 0 ? board[7][0] : ''" id="7-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 1)}" [disabled]="isInputDisabled(7, 1)"   autocomplete="false"   [value]="board[7][1] !== 0 ? board[7][1] : ''" id="7-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 2)}" [disabled]="isInputDisabled(7, 2)"   autocomplete="false"   [value]="board[7][2] !== 0 ? board[7][2] : ''" id="7-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 3)}" [disabled]="isInputDisabled(7, 3)"   autocomplete="false"   [value]="board[7][3] !== 0 ? board[7][3] : ''" id="7-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 4)}" [disabled]="isInputDisabled(7, 4)"   autocomplete="false"   [value]="board[7][4] !== 0 ? board[7][4] : ''" id="7-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 5)}" [disabled]="isInputDisabled(7, 5)"  autocomplete="false"   [value]="board[7][5] !== 0 ? board[7][5] : ''" id="7-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 6)}" [disabled]="isInputDisabled(7, 6)"   autocomplete="false"   [value]="board[7][6] !== 0 ? board[7][6] : ''" id="7-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 7)}" [disabled]="isInputDisabled(7, 7)"   autocomplete="false"   [value]="board[7][7] !== 0 ? board[7][7] : ''" id="7-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+             
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(7, 8)}" [disabled]="isInputDisabled(7, 8)"   autocomplete="false"   [value]="board[7][8] !== 0 ? board[7][8] : ''" id="7-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 7, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+
+
+        </section>
     </div>
     <div class="w-full h-full">
-<section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
-       <div class="w-full h-full border-3 border-gray-400" *ngFor="let col of board[8]">
-                <input [value]="col != 0?  col :'' " [disabled]="col != 0?  true : false " required type="text" class="w-full h-full" pattern="[1-9]" [maxLength]="1"
-                    (input)="inputData($event, col, 8)"/>
-       </div>
-    </section>
+        <section class="grid grid-cols-3 gap-1 w-full h-full border-4 border-gray-500 p-0.5 bg-gray-300">
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 0)}" [disabled]="isInputDisabled(8, 0)"   autocomplete="false"   [value]="board[8][0] !== 0 ? board[8][0] : ''" id="8-0" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 0)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 1)}" [disabled]="isInputDisabled(8, 1)"   autocomplete="false"   [value]="board[8][1] !== 0 ? board[8][1] : ''" id="8-1" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 1)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 2)}" [disabled]="isInputDisabled(8, 2)"   autocomplete="false"   [value]="board[8][2] !== 0 ? board[8][2] : ''" id="8-2" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 2)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 3)}" [disabled]="isInputDisabled(8, 3)"  autocomplete="false"   [value]="board[8][3] !== 0 ? board[8][3] : ''" id="8-3" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 3)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 4)}" [disabled]="isInputDisabled(8, 4)"  autocomplete="false"   [value]="board[8][4] !== 0 ? board[8][4] : ''" id="8-4" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 4)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 5)}" [disabled]="isInputDisabled(8, 5)"  autocomplete="false"   [value]="board[8][5] !== 0 ? board[8][5] : ''" id="8-5" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 5)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 6)}" [disabled]="isInputDisabled(8, 6)"  autocomplete="false"   [value]="board[8][6] !== 0 ? board[8][6] : ''" id="8-6" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 6)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 7)}" [disabled]="isInputDisabled(8, 7)"  autocomplete="false"   [value]="board[8][7] !== 0 ? board[8][7] : ''" id="8-7" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 7)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+
+            
+            <div class="w-full h-full border-3 border-gray-400">
+                <input [ngClass]="{'bg-gray-300': isInputDisabled(8, 8)}" [disabled]="isInputDisabled(8, 8)"  autocomplete="false"   [value]="board[8][8] !== 0 ? board[8][8] : ''" id="8-8" required type="text"
+                    class="w-full h-full" pattern="[1-9]" maxlength="1" (input)="onModelChange($event, 8, 8)"
+                    oninput="this.value = this.value.replace(/[^1-9]/g, '');" />
+            </div>
+        </section>
     </div>
 </section>
