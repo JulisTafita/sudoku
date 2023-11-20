@@ -30,6 +30,9 @@ export class HomeComponent {
       this.resultMessage = "";
     });
   }
+  ngOnInit(){
+    this.board = this.sudokuService.Generate(SudokuTypeEnum.EMPTY);
+  }
 
   /*
     Check current board if it is valid or not.
