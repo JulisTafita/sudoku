@@ -68,3 +68,8 @@ Critère d'évaluation:
 Votre solution sera évaluée en fonction de l'exactitude de la validation du Sudoku, de la qualité de l'application Angular et de sa conformité aux exigences et aux améliorations facultatives.
 
 Date limite : 2023.11.18
+
+
+
+
+ng test --include=**/home.component.spec.ts

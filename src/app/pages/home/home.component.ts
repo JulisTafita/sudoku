@@ -22,9 +22,11 @@ export class HomeComponent {
     Affecting the value of board by the value from the parent component, after checking it if the data is from the parent since both parent and child component use the same service
 
   */
-  constructor(private dataService: DataService, private sudokuService: SudokuService) {
+  constructor(
+    private dataService: DataService, 
+    private sudokuService: SudokuService) {
     this.dataService.data$.subscribe(data=> {
-      if( data.source ==SourceEnum.FIElD){
+      if( data.source == SourceEnum.FIELD){
         this.board = data.data
       }
       this.resultMessage = "";
@@ -52,6 +54,7 @@ export class HomeComponent {
     this.sudokuBoardReq.source = SourceEnum.BUTTON;
     this.sudokuBoardReq.type = SudokuTypeEnum.SOLVE;
     this.dataService.sendData(this.sudokuBoardReq)
+    
   }
   
   closeMessageResponseModal() {
@@ -65,7 +68,8 @@ export class HomeComponent {
     this.sudokuBoardReq.data = this.sudokuService.Generate(SudokuTypeEnum.EMPTY);
     this.sudokuBoardReq.source = SourceEnum.BUTTON;
     this.sudokuBoardReq.type = SudokuTypeEnum.EMPTY;
-    this.dataService.sendData(this.sudokuBoardReq)
+    this.dataService.sendData(this.sudokuBoardReq);
+  
   }
 
     /*
@@ -77,6 +81,6 @@ export class HomeComponent {
     this.sudokuBoardReq.data = this.board;
     this.sudokuBoardReq.source = SourceEnum.BUTTON
     this.sudokuBoardReq.type = SudokuTypeEnum.FILLED;
-    this.dataService.sendData(this.sudokuBoardReq)
+    this.dataService.sendData(this.sudokuBoardReq);
   }
 }

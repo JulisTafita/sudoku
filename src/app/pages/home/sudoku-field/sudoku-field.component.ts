@@ -1,7 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, Inject, Input, NgZone, Renderer2 } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Component, Inject } from '@angular/core';
 import { SudokuBoardReq } from 'src/app/@core/entities/sudoku-board-req';
 import { SourceEnum } from 'src/app/@core/enumerations/source-enum';
 import { SudokuTypeEnum } from 'src/app/@core/enumerations/sudoku-type.enum';
@@ -22,12 +19,12 @@ export class SudokuFieldComponent {;
     Listen for the data sent by parent component, the change the value of board variable by the one sent by parent.
   */
   type: SudokuTypeEnum = SudokuTypeEnum.EMPTY;
-  constructor(private dataService: DataService, private sudokuService: SudokuService, @Inject(DOCUMENT) private document: Document, private renderer: Renderer2) {
+  constructor(private dataService: DataService, private sudokuService: SudokuService) {
     this.dataService.data$.subscribe(data => {
       if( data.source ==SourceEnum.BUTTON){
         this.board = data.data;
         this.type = data.type;
-        this.disabledinputs = [];
+        this.disabledinputs = []; // reset disableiputs table values
        if(data.type == SudokuTypeEnum.SOLVE){
         data.data.forEach((el: any, elIndx: any) => {
           el.forEach((subEl: any, subElIndex: any) => {
@@ -47,17 +44,6 @@ export class SudokuFieldComponent {;
   ngOnInit(){
     this.board = this.sudokuService.Generate(SudokuTypeEnum.EMPTY);
   }
-
-
-  getInputs(){
- // Assuming you have input elements with IDs 'input1', 'input2', etc.
-  const elements = this.document.getElementsByTagName('input');
-  for (let i = 0; i < elements.length; i++) {
-    const inputValue = (elements[i] as HTMLInputElement).value;
-    console.log(`Input ${i + 1} value:`, inputValue);
-  }
-  }
-
 /*
   We are not using NgModel here, So we have to capture the value of input from respoective grid with (input)="onModelChange()".
   Verify if the value is a number, the changing the board case that have respective value by the data from the input.
@@ -74,7 +60,7 @@ export class SudokuFieldComponent {;
     }
 
     this.sudokuBoardReq.data = this.board;
-    this.sudokuBoardReq.source = SourceEnum.FIElD;
+    this.sudokuBoardReq.source = SourceEnum.FIELD;
     this.dataService.sendData(this.sudokuBoardReq);
   }
 
