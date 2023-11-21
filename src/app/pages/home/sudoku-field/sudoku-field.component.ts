@@ -13,6 +13,7 @@ import { SudokuService } from 'src/app/@core/services/sudoku.service';
 export class SudokuFieldComponent {;
   sudokuBoardReq:SudokuBoardReq = new SudokuBoardReq();
   board : number[][] = [];
+  newBoard: number[][] = [];
   disabledinputs: any[] = [];
   
   /*
@@ -23,12 +24,27 @@ export class SudokuFieldComponent {;
     this.dataService.data$.subscribe(data => {
       if( data.source ==SourceEnum.BUTTON){
         this.board = data.data;
+        
+        //this.newBoard = data.data;
         this.type = data.type;
         this.disabledinputs = []; // reset disableiputs table values
        if(data.type == SudokuTypeEnum.SOLVE){
+        /*
+          reset new board value to zero
+        */
+        data.data.forEach((el: any, elIndx: any) => {
+          el.forEach((subEl: any, subElIndex: any) => {
+            this.newBoard[elIndx][subElIndex] = 0
+          });
+        });
+
+        /*
+          copy each data to new board, we will manipulate newBoard but not directly board since it will cause a bad bihaviour in the html data binding.
+        */
         data.data.forEach((el: any, elIndx: any) => {
           el.forEach((subEl: any, subElIndex: any) => {
             if(data.data[elIndx][subElIndex] != 0){
+              this.newBoard[elIndx][subElIndex] = subEl;
               this.disabledinputs.push({elIndx: elIndx, subElIndx: subElIndex})
             }
           });
@@ -43,23 +59,25 @@ export class SudokuFieldComponent {;
   */
   ngOnInit(){
     this.board = this.sudokuService.Generate(SudokuTypeEnum.EMPTY);
+    this.newBoard = this.sudokuService.Generate(SudokuTypeEnum.EMPTY);
+    //this.newBoard = this.board;
   }
 /*
-  We are not using NgModel here, So we have to capture the value of input from respoective grid with (input)="onModelChange()".
   Verify if the value is a number, the changing the board case that have respective value by the data from the input.
   Finally Send this data to the parent component to be ready for  validation. 
 */
 
-  onModelChange(value: any, col: number, index: number) {
-    var number: number = parseInt(value.target.value, 10);
+  onModelChange($event: any, row: number, col: number){
+  
+  //  var newBoard = this.board
+   var number: number = parseInt($event.target.value, 10);
     if (!isNaN(number)){
-      this.board[col][index] = number;
+      this.newBoard[row][col] = number;
     }
     if (isNaN(number) || number == 0 ){
-      this.board[col][index] = 0;
+      this.newBoard[row][col] = 0;
     }
-
-    this.sudokuBoardReq.data = this.board;
+    this.sudokuBoardReq.data = this.newBoard;
     this.sudokuBoardReq.source = SourceEnum.FIELD;
     this.dataService.sendData(this.sudokuBoardReq);
   }
