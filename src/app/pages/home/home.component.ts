@@ -27,11 +27,15 @@ export class HomeComponent {
     private sudokuService: SudokuService) {
     this.dataService.data$.subscribe(data=> {
       if( data.source == SourceEnum.FIELD){
-        this.board = data.data
+        this.board = data.data;
       }
       this.resultMessage = "";
     });
   }
+
+  /*
+    Initialize the value of board
+  */
   ngOnInit(){
     this.board = this.sudokuService.Generate(SudokuTypeEnum.EMPTY);
   }
@@ -71,7 +75,6 @@ export class HomeComponent {
     this.dataService.sendData(this.sudokuBoardReq);
   
   }
-
     /*
     Generate board according to the type passed in the parameter.
     SudokuTypeEnum.FILLED if we want to generate a full  value of the board.

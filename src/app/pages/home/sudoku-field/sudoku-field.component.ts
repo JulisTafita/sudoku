@@ -28,29 +28,31 @@ export class SudokuFieldComponent {;
         //this.newBoard = data.data;
         this.type = data.type;
         this.disabledinputs = []; // reset disableiputs table values
-       if(data.type == SudokuTypeEnum.SOLVE){
-        /*
-          reset new board value to zero
-        */
-        data.data.forEach((el: any, elIndx: any) => {
-          el.forEach((subEl: any, subElIndex: any) => {
-            this.newBoard[elIndx][subElIndex] = 0
-          });
-        });
-
-        /*
-          copy each data to new board, we will manipulate newBoard but not directly board since it will cause a bad bihaviour in the html data binding.
-        */
-        data.data.forEach((el: any, elIndx: any) => {
-          el.forEach((subEl: any, subElIndex: any) => {
-            if(data.data[elIndx][subElIndex] != 0){
-              this.newBoard[elIndx][subElIndex] = subEl;
-              this.disabledinputs.push({elIndx: elIndx, subElIndx: subElIndex})
-            }
-          });
-        });
-       }
+        this.setData(data);
       }
+    });
+  }
+  setData(data: any) {
+    /*
+      reset new board value to zero
+    */
+    data.data.forEach((el: any, elIndx: any) => {
+      el.forEach((subEl: any, subElIndex: any) => {
+        this.newBoard[elIndx][subElIndex] = 0
+      });
+    });
+    /*
+      copy each data to new board, we will manipulate newBoard but not directly board since it will cause a bad bihaviour in the html data binding.
+    */
+    data.data.forEach((el: any, elIndx: any) => {
+      el.forEach((subEl: any, subElIndex: any) => {
+        if(data.data[elIndx][subElIndex] != 0){
+          this.newBoard[elIndx][subElIndex] = subEl;
+          if(data.type == SudokuTypeEnum.SOLVE){
+            this.disabledinputs.push({elIndx: elIndx, subElIndx: subElIndex})
+          }
+        }
+      });
     });
   }
 
